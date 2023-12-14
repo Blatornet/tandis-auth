@@ -1,6 +1,6 @@
 .vercel
 .next
+.DS_Store
 
 /cert
-
 /node_modules
