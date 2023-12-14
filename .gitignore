@@ -1,0 +1,6 @@
+.vercel
+.next
+
+/cert
+
+/node_modules
