@@ -2,16 +2,22 @@ require("dotenv").config();
 
 const jwt = require("jsonwebtoken");
 
-const { CERTIFICATE_PRIVATE_KEY,CERTIFICATE_PUBLIC_KEY } = process.env;
+const { JWT_ISSUER,
+    JWT_AUDIENCE,
+    JWT_EXPIRES_IN,
+    JWT_ALGORITHM,
+    CERTIFICATE_PRIVATE_KEY,
+    CERTIFICATE_PUBLIC_KEY 
+} = process.env;
 
 const privateKey = Buffer.from(CERTIFICATE_PRIVATE_KEY, "base64").toString("ascii");
 const publicKey = Buffer.from(CERTIFICATE_PUBLIC_KEY, "base64").toString("ascii");
 
 let options = {
-    issuer:  "Tandis",
-    audience:  "https://tandis.app",
-    expiresIn:  "12h",
-    algorithm:  "RS256"
+    issuer: JWT_ISSUER,
+    audience: JWT_AUDIENCE,
+    expiresIn: JWT_EXPIRES_IN,
+    algorithm: JWT_ALGORITHM
 };
 
 const sign = (payload) => {
