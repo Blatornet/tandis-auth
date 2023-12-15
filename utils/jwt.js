@@ -1,8 +1,11 @@
-const fs = require("fs");
+require("dotenv").config();
+
 const jwt = require("jsonwebtoken");
 
-const privateKey  = fs.readFileSync("./cert/private.key", "utf8");
-const publicKey  = fs.readFileSync("./cert/public.key", "utf8");
+const { CERTIFICATE_PRIVATE_KEY,CERTIFICATE_PUBLIC_KEY } = process.env;
+
+const privateKey = Buffer.from(CERTIFICATE_PRIVATE_KEY, "base64").toString("ascii");
+const publicKey = Buffer.from(CERTIFICATE_PUBLIC_KEY, "base64").toString("ascii");
 
 let options = {
     issuer:  "Tandis",

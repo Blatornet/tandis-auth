@@ -1,5 +1,6 @@
 .vercel
 .next
+.env
 .DS_Store
 
 /cert
